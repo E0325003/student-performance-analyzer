@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Analyzer</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            margin: 5px;
+            padding: 8px;
+        }
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🎓 Student Performance Analyzer</h2>
+
+    <input type="number" id="math" placeholder="Maths"><br>
+    <input type="number" id="science" placeholder="Science"><br>
+    <input type="number" id="english" placeholder="English"><br>
+
+    <button onclick="calculate()">Analyze</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculate() {
+            let m = Number(document.getElementById("math").value);
+            let s = Number(document.getElementById("science").value);
+            let e = Number(document.getElementById("english").value);
+
+            let total = m + s + e;
+            let avg = total / 3;
+            let grade = "";
+
+            if (avg >= 90) grade = "A";
+            else if (avg >= 75) grade = "B";
+            else if (avg >= 50) grade = "C";
+            else grade = "Fail";
+
+            document.getElementById("result").innerHTML =
+                "Total: " + total + "<br>Average: " + avg.toFixed(2) + "<br>Grade: " + grade;
+        }
+    </script>
+
+</body>
+</html>
